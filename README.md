@@ -1,2 +1,2 @@
 # SimpleAssistant
-A very simple assistant made in java
+A very simple assistant made in java 
