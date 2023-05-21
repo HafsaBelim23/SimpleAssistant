@@ -1,0 +1,65 @@
+import java.util.Scanner;
+public class AIassistant {
+    public static String getResponse(String input) {
+        String response;
+
+        // Remove leading/trailing whitespace and convert input to lowercase for easier processing
+        input = input.trim().toLowerCase();
+
+        // Check for specific commands or keywords
+        if (input.contains("hello") || input.contains("hi")) {
+            response = "Hello! How can I help you?";
+        } else if (input.contains("time")) {
+            // Example: Respond with the current time
+            response = "The current time is " + getCurrentTime();
+        } else if (input.contains("date")) {
+            // Example: Respond with the current date
+            response = "Today is " + getCurrentDate();
+        } else if (input.contains("fuck")){
+            response = "This seems inappropriate, lets talk about something else";
+        } else if (input.contains("what is your name")) {
+            response = "My name is Hafsa ka assistant";
+        } else if (input.contains("who made you")){
+            response = "My code is written by Hafsa Belim";
+        } else {
+            response = "I'm sorry, I didn't understand that.";
+        }
+
+        return response;
+    }
+
+    public static String getCurrentTime() {
+        // Implement code to get the current time
+        // Example: Using java.time.LocalTime to get the current time
+        java.time.LocalTime currentTime = java.time.LocalTime.now();
+        return currentTime.toString();
+    }
+
+    public static String getCurrentDate() {
+        // Implement code to get the current date
+        // Example: Using java.time.LocalDate to get the current date
+        java.time.LocalDate currentDate = java.time.LocalDate.now();
+        return currentDate.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello! How can I assist you today?");
+
+        while (true) {
+            String input = scanner.nextLine();
+
+            // Check for exit command
+            if (input.equalsIgnoreCase("exit")|| (input.equalsIgnoreCase("bye") ||
+                    (input.equalsIgnoreCase("goodbye")|| (input.equalsIgnoreCase("ok bye"))))) {
+                System.out.println("Goodbye! Have a great day!");
+                break;
+            }
+
+            String response = getResponse(input);
+            System.out.println(response);
+        }
+
+        scanner.close();
+    }
+}
